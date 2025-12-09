@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8" />
+        <title>My Server</title>
+
+    <link href="https://fonts.cdnfonts.com/css/open-dyslexic" rel="stylesheet" />
+
+    <style>
+        :root {
+            --color: #ffd75f;
+            --shadow: #e0a500;
+            --glare: hsl(0, 0%, 100%);
+            --font-size: clamp(1.75rem, 4vw, 3rem);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            font-family: 'Open-Dyslexic', sans-serif;
+            background: #ffffff;
+            padding-top: 15vh; /* roughly one third from the top */
+        }
+
+        a {
+            --padding: 0.75rem;
+            padding: var(--padding);
+            text-decoration: none;
+            color: transparent;
+            position: relative;
+            border-radius: 999px;
+            background: transparent;
+        }
+
+        span {
+            display: inline-block;
+            font-size: var(--font-size);
+            font-weight: 700;
+            text-decoration: none;
+            text-shadow:
+                    calc(var(--font-size) * -0.00) calc(var(--font-size) * 0.00) var(--shadow),
+                    calc(var(--font-size) * -0.02) calc(var(--font-size) * 0.02) var(--shadow),
+                    calc(var(--font-size) * -0.04) calc(var(--font-size) * 0.04) var(--shadow),
+                    calc(var(--font-size) * -0.06) calc(var(--font-size) * 0.06) var(--shadow),
+                    calc(var(--font-size) * -0.08) calc(var(--font-size) * 0.08) var(--shadow),
+                    calc(var(--font-size) * -0.10) calc(var(--font-size) * 0.10) var(--shadow);
+            transform: translate(calc(var(--font-size) * 0.10), calc(var(--font-size) * -0.10));
+            color: #000;
+        }
+
+        span:last-of-type {
+            position: absolute;
+            inset: var(--padding);
+            background:
+                    linear-gradient(
+                            108deg,
+                            transparent 0 55%,
+                            var(--glare) 55% 60%,
+                            transparent 60% 70%,
+                            var(--glare) 70% 85%,
+                            transparent 85%
+                    )
+                    0% 0% / 200% 100% no-repeat,
+                    var(--color);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+            animation: shine 1.5s linear infinite;
+            transform: translate(calc(var(--font-size) * 0.10), calc(var(--font-size) * -0.10));
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: 200% 0%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        a svg {
+            position: absolute;
+            z-index: 3;
+            width: calc(var(--font-size) * 0.5);
+            aspect-ratio: 1;
+            --delay-step: 0.15;
+            top: calc(var(--y, 50) * 1%);
+            left: calc(var(--x, 0) * 1%);
+            transform: translate(-50%, -50%) scale(0);
+            animation: sparkle 0.75s calc((var(--delay-step) * var(--d)) * 1s) infinite;
+        }
+
+        a svg path {
+            fill: var(--glare);
+            stroke: var(--shadow);
+            stroke-width: 8px;
+            stroke-linejoin: round;
+            paint-order: stroke fill;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(var(--s, 1));
+            }
+        }
+
+        a svg:nth-of-type(1) {
+            --x: 0;
+            --y: 20;
+            --s: 1.1;
+            --d: 1;
+        }
+
+        a svg:nth-of-type(2) {
+            --x: 15;
+            --y: 80;
+            --s: 1.25;
+            --d: 2;
+        }
+
+        a svg:nth-of-type(3) {
+            --x: 45;
+            --y: 40;
+            --s: 1.1;
+            --d: 3;
+        }
+
+        a svg:nth-of-type(4) {
+            --x: 75;
+            --y: 60;
+            --s: 0.9;
+            --d: 2;
+        }
+
+        a svg:nth-of-type(5) {
+            --x: 100;
+            --y: 30;
+            --s: 0.8;
+            --d: 4;
+        }
+
+        .bottom-image {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+            height: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<a href="#">
+    <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+                d="M93.781 51.578C95 50.969 96 49.359 96 48c0-1.375-1-2.969-2.219-3.578 0 0-22.868-1.514-31.781-10.422-8.915-8.91-10.438-31.781-10.438-31.781C50.969 1 49.375 0 48 0s-2.969 1-3.594 2.219c0 0-1.5 22.87-10.406 31.781-8.908 8.913-31.781 10.422-31.781 10.422C1 45.031 0 46.625 0 48c0 1.359 1 2.969 2.219 3.578 0 0 22.873 1.51 31.781 10.422 8.906 8.911 10.406 31.781 10.406 31.781C45.031 95 46.625 96 48 96s2.969-1 3.562-2.219c0 0 1.523-22.871 10.438-31.781 8.913-8.908 31.781-10.422 31.781-10.422Z"
+                fill="#000"
+        />
+    </svg>
+    <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+                d="M93.781 51.578C95 50.969 96 49.359 96 48c0-1.375-1-2.969-2.219-3.578 0 0-22.868-1.514-31.781-10.422-8.915-8.91-10.438-31.781-10.438-31.781C50.969 1 49.375 0 48 0s-2.969 1-3.594 2.219c0 0-1.5 22.87-10.406 31.781-8.908 8.913-31.781 10.422-31.781 10.422C1 45.031 0 46.625 0 48c0 1.359 1 2.969 2.219 3.578 0 0 22.873 1.51 31.781 10.422 8.906 8.911 10.406 31.781 10.406 31.781C45.031 95 46.625 96 48 96s2.969-1 3.562-2.219c0 0 1.523-22.871 10.438-31.781 8.913-8.908 31.781-10.422 31.781-10.422Z"
+                fill="#000"
+        />
+    </svg>
+    <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+                d="M93.781 51.578C95 50.969 96 49.359 96 48c0-1.375-1-2.969-2.219-3.578 0 0-22.868-1.514-31.781-10.422-8.915-8.91-10.438-31.781-10.438-31.781C50.969 1 49.375 0 48 0s-2.969 1-3.594 2.219c0 0-1.5 22.87-10.406 31.781-8.908 8.913-31.781 10.422-31.781 10.422C1 45.031 0 46.625 0 48c0 1.359 1 2.969 2.219 3.578 0 0 22.873 1.51 31.781 10.422 8.906 8.911 10.406 31.781 10.406 31.781C45.031 95 46.625 96 48 96s2.969-1 3.562-2.219c0 0 1.523-22.871 10.438-31.781 8.913-8.908 31.781-10.422 31.781-10.422Z"
+                fill="#000"
+        />
+    </svg>
+    <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+                d="M93.781 51.578C95 50.969 96 49.359 96 48c0-1.375-1-2.969-2.219-3.578 0 0-22.868-1.514-31.781-10.422-8.915-8.91-10.438-31.781-10.438-31.781C50.969 1 49.375 0 48 0s-2.969 1-3.594 2.219c0 0-1.5 22.87-10.406 31.781-8.908 8.913-31.781 10.422-31.781 10.422C1 45.031 0 46.625 0 48c0 1.359 1 2.969 2.219 3.578 0 0 22.873 1.51 31.781 10.422 8.906 8.911 10.406 31.781 10.406 31.781C45.031 95 46.625 96 48 96s2.969-1 3.562-2.219c0 0 1.523-22.871 10.438-31.781 8.913-8.908 31.781-10.422 31.781-10.422Z"
+                fill="#000"
+        />
+    </svg>
+    <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+                d="M93.781 51.578C95 50.969 96 49.359 96 48c0-1.375-1-2.969-2.219-3.578 0 0-22.868-1.514-31.781-10.422-8.915-8.91-10.438-31.781-10.438-31.781C50.969 1 49.375 0 48 0s-2.969 1-3.594 2.219c0 0-1.5 22.87-10.406 31.781-8.908 8.913-31.781 10.422-31.781 10.422C1 45.031 0 46.625 0 48c0 1.359 1 2.969 2.219 3.578 0 0 22.873 1.51 31.781 10.422 8.906 8.911 10.406 31.781 10.406 31.781C45.031 95 46.625 96 48 96s2.969-1 3.562-2.219c0 0 1.523-22.871 10.438-31.781 8.913-8.908 31.781-10.422 31.781-10.422Z"
+                fill="#000"
+        />
+    </svg>
+
+    <span>you are so cool</span>
+    <span aria-hidden="true">you are so cool</span>
+</a>
+
+<img src="girl.png" alt="" class="bottom-image" />
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
